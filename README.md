@@ -16,7 +16,7 @@ Build an Azure-native FinOps cost visibility dashboard that exports cost data, v
 - Azure Budget
 - Azure Monitor Action Group
 - Azure Logic App for notifications
-- Azure Monitor Workbook dashboard
+- Azure Monitor Workbook
 
 ## Key Features
 - Cost data export to Azure Storage
