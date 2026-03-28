@@ -21,44 +21,6 @@ resource "azurerm_storage_container" "cost_exports" {
   storage_account_id    = azurerm_storage_account.main.id
   container_access_type = "private"
 }
-/**
-resource "azapi_resource" "cost_export" {
-  type      = "Microsoft.CostManagement/exports@2023-03-01"
-  name      = "cost-export-daily"
-  parent_id = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
-
-  body = jsonencode({
-  properties = {
-    definition = {
-      type      = "ActualCost"
-      timeframe = "MonthToDate"
-      dataSet = {
-        granularity = "Daily"
-      }
-    }
-
-    deliveryInfo = {
-      destination = {
-        resourceId     = azurerm_storage_account.main.id
-        container      = azurerm_storage_container.cost_exports.name
-        rootFolderPath = "cost-data"
-      }
-    }
-
-    format = "Csv"
-
-    schedule = {
-      status = "Active"
-      recurrence = "Daily"
-      recurrencePeriod = {
-        from = formatdate("YYYY-MM-DD'T'hh:mm:ss'Z'", timestamp())
-        to   = "2030-01-01T00:00:00Z"
-      }
-    }
-  }
-})
-}
-**/
 
 resource "azurerm_monitor_action_group" "main" {
   name                = "ag-finops-dashboard-dev"
