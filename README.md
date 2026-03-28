@@ -1,5 +1,3 @@
-added:      README.md
-
 # Azure FinOps Cost Visibility Dashboard
 
 ## Overview
