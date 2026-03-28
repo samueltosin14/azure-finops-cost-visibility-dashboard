@@ -5,7 +5,7 @@ This project provides an Azure-native cost visibility and governance solution us
 
 ## Architecture
 ![Architecture Diagram](architecture/architecture-diagram.png)
-
+This architecture demonstrates cost data ingestion, visualization, governance, and automated alerting, fully provisioned using Terraform and deployed via GitHub Actions.
 ## Objective
 Build an Azure-native FinOps cost visibility dashboard that exports cost data, visualizes spend, triggers budget alerts, and automates notifications, all deployed with Terraform and managed in GitHub.
 
