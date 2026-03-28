@@ -1,6 +1,6 @@
 **Title:** Azure FinOps Cost Visibility Dashboard
 
-**Objective:**Build an Azure-native FinOps cost visibility dashboard that exports cost data, visualizes spend, triggers budget alerts, and automates notifications, all deployed with Terraform and managed in GitHub.
+**Objective:** Build an Azure-native FinOps cost visibility dashboard that exports cost data, visualizes spend, triggers budget alerts, and automates notifications, all deployed with Terraform and managed in GitHub.
 
 **MVP Scope:**
 Azure Resource Group
