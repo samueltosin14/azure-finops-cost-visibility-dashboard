@@ -50,7 +50,7 @@ resource "azurerm_consumption_budget_subscription" "main" {
     end_date   = "2030-03-01T00:00:00Z"
   }
 
-  notification {
+    notification {
     enabled        = true
     threshold      = 50
     operator       = "GreaterThan"
@@ -75,5 +75,42 @@ resource "azurerm_consumption_budget_subscription" "main" {
     threshold_type = "Actual"
 
     contact_groups = [azurerm_monitor_action_group.main.id]
+  }
+}
+
+resource "azurerm_logic_app_workflow" "main" {
+  name                = "la-finops-dashboard-dev"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  tags = {
+    project     = "finops-dashboard"
+    environment = "dev"
+  }
+}
+
+resource "azurerm_application_insights_workbook" "main" {
+  name                = uuid()
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  display_name        = "Azure FinOps Cost Visibility Dashboard"
+
+  data_json = jsonencode({
+    version = "Notebook/1.0"
+    items = [
+      {
+        type = 1
+        name = "intro"
+        content = {
+          json = "# Azure FinOps Cost Visibility Dashboard\n\nThis workbook is the initial dashboard shell for Azure cost visibility and governance."
+        }
+      }
+    ]
+    isLocked = false
+  })
+
+  tags = {
+    project     = "finops-dashboard"
+    environment = "dev"
   }
 }
