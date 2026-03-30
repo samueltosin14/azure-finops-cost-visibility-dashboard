@@ -25,3 +25,6 @@ Build an Azure-native FinOps cost visibility dashboard that exports cost data, v
 - Automated notifications using Logic Apps
 - Infrastructure as Code using Terraform
 - CI/CD using GitHub Actions
+
+## Known Limitation
+Azure Cost Export deployment through Terraform/AzAPI encountered an authentication issue during API execution. As a temporary workaround, the export was configured through the Azure Portal while the prerequisite infrastructure remained Terraform-managed.
